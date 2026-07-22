@@ -1,0 +1,256 @@
+{
+   "common": {
+      "buttons": {
+         "confirm": "Confirm",
+         "cancel": "Cancel",
+         "close": "Close",
+         "loading": "Processing..."
+      },
+      "placeholders": {
+         "search": "Search...",
+         "select_option": "Please select..."
+      },
+      "status": {
+         "no_data": "No data found.",
+         "success": "Success",
+         "error": "An error occurred"
+      },
+      "i18n": {
+         "vi": {
+            "label": "Vietnamese",
+            "abbreviation": "VI"
+         },
+         "en": {
+            "label": "English",
+            "abbreviation": "EN"
+         },
+         "tooltips": {
+            "language_switcher": "Change language"
+         }
+      }
+   },
+
+   "navigation": {
+      "navbar": {
+         "faq": "FAQ & tutorial",
+         "settings": "Settings"
+      },
+      "navigation_bar": {
+         "home": "Home",
+         "tasks": "Tasks",
+         "user_profile": "Profile"
+      }
+   },
+
+   "auth": {
+      "signup": {
+         "heading": "Create account",
+         "subheading": "Join the world of Pomotopia now.",
+         "provider": "Sign up with {provider}",
+         "separator": "or",
+         "fields": {
+            "email": {
+               "label": "Email address",
+               "placeholder": "email@example.com"
+            },
+            "password": {
+               "label": "Password",
+               "placeholder": "Enter your password"
+            },
+            "confirm_password": {
+               "label": "Confirm password*",
+               "placeholder": "Enter your password again"
+            }
+         },
+         "submit_button": "Sign up",
+         "submitting": "Signing up...",
+         "footer_text": "Already have an account?",
+         "footer_link": "Sign in",
+         "terms": {
+            "agree": "By clicking create account, you agree to our",
+            "tos": "Terms of Service",
+            "and": "and",
+            "privacy": "Privacy Policy"
+         },
+         "toasts": {
+            "success": "Account created successfull."
+         }
+      },
+      "signin": {
+         "heading": "Welcome back",
+         "subheading": "Enter the world of Pomotopia with your account",
+         "provider": "Sign in with {provider}",
+         "separator": "or",
+         "fields": {
+            "email": {
+               "label": "Email address",
+               "placeholder": "email@example.com"
+            },
+            "password": {
+               "label": "Password",
+               "placeholder": "Enter your password"
+            }
+         },
+         "submit_button": "Sign in",
+         "submitting": "Signing in...",
+         "footer_text": "Don't have an account?",
+         "footer_link": "Sign up",
+         "toasts": {
+            "success": "Sign in successfully."
+         }
+      }
+   },
+   "onboarding": {
+      "heading": "What should we call you?",
+      "subheading": "Pick a unique username. This is how you'll be identified in Pomotopia.",
+      "fields": {
+         "username": {
+            "placeholder": "Enter your username (e.g. pomotopia_123)",
+            "description": "You can always change it later in your settings."
+         }
+      },
+      "submit_button": "Confirm"
+   },
+   "settings": {
+      "appearance": {
+         "title": "Appearance",
+         "theme": {
+            "title": "Theme",
+            "description": "Theme settings",
+            "tooltips": {
+               "theme_toggler": {
+                  "switch_to_light": "Switch to light mode",
+                  "switch_to_dark": "Switch to dark mode",
+                  "switch_to_system": "Switch to system mode"
+               }
+            }
+         }
+      },
+      "account": {
+         "title": "Account & security",
+         "profile": {
+            "title": "Profile",
+            "description": "Change profile information"
+         },
+         "security": {
+            "title": "Security",
+            "description": "Secure your account"
+         }
+      },
+      "search": {
+         "result_label": "settings found",
+         "no_data": {
+            "title": "No settings found",
+            "description": "No settings found with your search: \"{keyword}\". Try different keywords in your next search"
+         },
+         "placeholder": "Search settings...",
+         "tooltips": {
+            "clear_button": "Clear"
+         }
+      }
+   },
+
+   "pomodoro": {
+      "timer": {
+         "start": "Start Focus",
+         "pause": "Pause",
+         "resume": "Resume",
+         "reset": "Reset",
+         "state_focus": "Focus Time",
+         "state_short_break": "Short Break",
+         "state_long_break": "Long Break"
+      },
+      "task_manager": {
+         "heading": "Task List",
+         "add_btn": "Add Task",
+         "form_add": {
+            "title": "Add New Task",
+            "label_name": "Task Name",
+            "placeholder_name": "What are you working on next?",
+            "submit_btn": "Create Task"
+         },
+         "form_edit": {
+            "title": "Edit Task",
+            "label_name": "Task Name",
+            "placeholder_name": "Update task name...",
+            "submit_btn": "Edit Task"
+         },
+         "toasts": {
+            "create_success": "Task added successfully!",
+            "update_success": "Task updated successfully!",
+            "delete_success": "Task deleted successfully!"
+         }
+      }
+   },
+
+   "game_profile": {
+      "character_section": {
+         "heading": "Character Info",
+         "form_edit": {
+            "title": "Edit Character Info",
+            "label_nickname": "Character Nickname",
+            "placeholder_nickname": "Enter new nickname...",
+            "submit_btn": "Edit Character Info"
+         },
+         "toasts": {
+            "update_success": "Character info updated successfully!"
+         }
+      },
+      "outfit_shop": {
+         "heading": "Outfit Shop",
+         "owned_status": "Owned",
+         "form_edit": {
+            "title": "Change Outfit",
+            "submit_btn": "Edit Outfit"
+         },
+         "toasts": {
+            "equip_success": "New outfit equipped successfully!",
+            "buy_success": "Outfit purchased successfully!"
+         }
+      }
+   },
+
+   "errors": {
+      "common": {
+         "system": {
+            "INTERNAL_SERVER_ERROR": "An unexpected error occurred. Please try again later.",
+            "REQUEST_TIMEOUT": "The server took too long to respond. Please try again in a few minutes.",
+            "DATABASE_ERROR": "Unable to connect to the database at this time.",
+            "DATA_NOT_FOUND": "Requested data could not be found."
+         }
+      },
+      "auth": {
+         "validation": {
+            "EMAIL_REQUIRED": "Please enter your email address.",
+            "PASSWORD_REQUIRED": "Please enter your password.",
+            "INVALID_EMAIL": "Invalid email address format.",
+            "INVALID_INPUT": "Invalid input format.",
+            "PASSWORD_TOO_SHORT": "Password must be at least {count} characters long.",
+            "PASSWORD_MISMATCH": "Password does not match."
+         },
+         "business": {
+            "USER_ALREADY_EXISTS": "This information is already registered to another account.",
+            "INVALID_CREDENTIALS": "Incorrect email or password.",
+            "UNAUTHORIZED": "Your login session has expired. Please sign in again."
+         },
+         "system": {
+            "USER_NOT_FOUND": "No user account was found associated with the details provided."
+         }
+      },
+      "onboarding": {
+         "validation": {
+            "USERNAME_REQUIRED": "Please enter your username.",
+            "INVALID_USERNAME": "Username can only contain alphanumeric characters and underscores.",
+            "USERNAME_TOO_SHORT": "Username must be at least {count} characters long.",
+            "USERNAME_TOO_LONG": "Username cannot exceed {count} characters."
+         },
+         "business": {
+            "USERNAME_ALREADY_EXISTS": "This username is already taken. Please choose another one.",
+            "UNAUTHORIZED": "Your login session has expired. Please sign in again."
+         },
+         "system": {
+            "USER_NOT_FOUND": "No user account was found associated with the details provided."
+         }
+      }
+   }
+}

@@ -1,0 +1,256 @@
+{
+   "common": {
+      "buttons": {
+         "confirm": "Xác nhận",
+         "cancel": "Hủy bỏ",
+         "close": "Đóng",
+         "loading": "Đang xử lý..."
+      },
+      "placeholders": {
+         "search": "Tìm kiếm...",
+         "select_option": "Vui lòng chọn..."
+      },
+      "status": {
+         "no_data": "Không tìm thấy dữ liệu nào.",
+         "success": "Thành công",
+         "error": "Đã xảy ra lỗi"
+      },
+      "i18n": {
+         "vi": {
+            "label": "Tiếng Việt",
+            "abbreviation": "VI"
+         },
+         "en": {
+            "label": "Tiếng Anh",
+            "abbreviation": "EN"
+         },
+         "tooltips": {
+            "language_switcher": "Chọn ngôn ngữ"
+         }
+      }
+   },
+
+   "navigation": {
+      "navbar": {
+         "faq": "Câu hỏi thường gặp & hướng dẫn",
+         "settings": "Cài đặt"
+      },
+      "navigation_bar": {
+         "home": "Nhà",
+         "tasks": "Kế hoạch",
+         "user_profile": "Hồ sơ"
+      }
+   },
+
+   "auth": {
+      "signup": {
+         "heading": "Chào mừng bạn",
+         "subheading": "Tham gia ngay vào thế giới Pomotopia.",
+         "provider": "Đăng ký với {provider}",
+         "separator": "hoặc",
+         "fields": {
+            "email": {
+               "label": "Email",
+               "placeholder": "email@example.com"
+            },
+            "password": {
+               "label": "Mật khẩu",
+               "placeholder": "Nhập mật khẩu của bạn"
+            },
+            "confirm_password": {
+               "label": "Xác nhận mật khẩu",
+               "placeholder": "Nhập lại mật khẩu của bạn"
+            }
+         },
+         "submit_button": "Đăng ký",
+         "submitting": "Đang đăng ký...",
+         "footer_text": "Bạn đã có tài khoản?",
+         "footer_link": "Đăng nhập ngay",
+         "terms": {
+            "agree": "Bằng việc nhấn nút tạo tài khoản, bạn đồng ý với",
+            "tos": "Điều khoản dịch vụ",
+            "and": "và",
+            "privacy": "Chính sách bảo mật"
+         },
+         "toasts": {
+            "success": "Đăng ký tài khoản thành công."
+         }
+      },
+      "signin": {
+         "heading": "Chào mừng quay trở lại",
+         "subheading": "Tiến vào thế giới Pomotopia",
+         "provider": "Đăng nhập với {provider}",
+         "separator": "hoặc",
+         "fields": {
+            "email": {
+               "label": "Email",
+               "placeholder": "email@example.com"
+            },
+            "password": {
+               "label": "Mật khẩu",
+               "placeholder": "Enter your password"
+            }
+         },
+         "submit_button": "Đăng nhập",
+         "submitting": "Đang đăng nhập...",
+         "footer_text": "Bạn chưa có tài khoản?",
+         "footer_link": "Đăng ký ngay",
+         "toasts": {
+            "success": "Đăng nhập thành công."
+         }
+      }
+   },
+   "onboarding": {
+      "heading": "Chúng mình nên gọi bạn là gì nhỉ?",
+      "subheading": "Hãy chọn một cái tên duy nhất. Đây là tên hiển thị định danh của bạn trong Pomotopia.",
+      "fields": {
+         "username": {
+            "placeholder": "Nhập tên người dùng (Ví dụ: pomotopia_123)",
+            "description": "Bạn luôn có thể thay đổi tên này sau trong Cài đặt > Tài khoản."
+         }
+      },
+      "submit_button": "Xác nhận"
+   },
+   "settings": {
+      "appearance": {
+         "title": "Giao diện",
+         "theme": {
+            "title": "Chủ đề",
+            "description": "Lựa chọn chủ đề",
+            "tooltips": {
+               "theme_toggler": {
+                  "switch_to_light": "Chuyển sang giao diện sáng",
+                  "switch_to_dark": "Chuyển sang giao diện tối",
+                  "switch_to_system": "Chuyển sang giao diện hệ thống"
+               }
+            }
+         }
+      },
+      "account": {
+         "title": "Tài khoản & bảo mật",
+         "profile": {
+            "title": "Thông tin tài khoản",
+            "description": "Thay đổi thông tin tài khoản"
+         },
+         "security": {
+            "title": "Bảo mật",
+            "description": "Bảo vệ tài khoản của bạn"
+         }
+      },
+      "search": {
+         "result_label": "kết quả",
+         "placeholder": "Tìm kiếm cài đặt...",
+         "no_data": {
+            "title": "Không tìm thấy cài đặt",
+            "description": "Không tồn tại cài đặt phù hợp với từ khóa: \"{keyword}\". Hãy thử tìm kiếm với một từ khóa khác"
+         },
+         "tooltips": {
+            "clear_button": "Xoá"
+         }
+      }
+   },
+
+   "pomodoro": {
+      "timer": {
+         "start": "Bắt đầu tập trung",
+         "pause": "Tạm dừng",
+         "resume": "Tiếp tục",
+         "reset": "Làm mới",
+         "state_focus": "Thời gian tập trung",
+         "state_short_break": "Nghỉ giải lao ngắn",
+         "state_long_break": "Nghỉ giải lao dài"
+      },
+      "task_manager": {
+         "heading": "Danh sách nhiệm vụ",
+         "add_btn": "Thêm nhiệm vụ",
+         "form_add": {
+            "title": "Thêm nhiệm vụ mới",
+            "label_name": "Tên nhiệm vụ",
+            "placeholder_name": "Bạn sắp làm gì tiếp theo?",
+            "submit_btn": "Tạo nhiệm vụ"
+         },
+         "form_edit": {
+            "title": "Chỉnh sửa nhiệm vụ",
+            "label_name": "Tên nhiệm vụ",
+            "placeholder_name": "Cập nhật lại tên nhiệm vụ...",
+            "submit_btn": "Sửa nhiệm vụ"
+         },
+         "toasts": {
+            "create_success": "Đã thêm nhiệm vụ thành công!",
+            "update_success": "Đã cập nhật nhiệm vụ!",
+            "delete_success": "Đã xóa nhiệm vụ!"
+         }
+      }
+   },
+
+   "game_profile": {
+      "character_section": {
+         "heading": "Thông tin nhân vật",
+         "form_edit": {
+            "title": "Chỉnh sửa thông tin nhân vật",
+            "label_nickname": "Biệt danh nhân vật",
+            "placeholder_nickname": "Nhập biệt danh mới...",
+            "submit_btn": "Sửa thông tin nhân vật"
+         },
+         "toasts": {
+            "update_success": "Cập nhật thông tin nhân vật thành công!"
+         }
+      },
+      "outfit_shop": {
+         "heading": "Cửa hàng trang phục",
+         "owned_status": "Đã sở hữu",
+         "form_edit": {
+            "title": "Thay đổi trang phục",
+            "submit_btn": "Sửa trang phục"
+         },
+         "toasts": {
+            "equip_success": "Đã mặc trang phục mới thành công!",
+            "buy_success": "Mua trang phục thành công!"
+         }
+      }
+   },
+
+   "errors": {
+      "common": {
+         "system": {
+            "INTERNAL_SERVER_ERROR": "Xảy ra lỗi không xác định. Vui lòng thử lại sau.",
+            "REQUEST_TIMEOUT": "Máy chủ cần quá nhiều thời gian để phản hồi. Vui lòng thử lại sau ít phút.",
+            "DATABASE_ERROR": "Không thể kết nối với cơ sở dữ liệu vào lúc này.",
+            "DATA_NOT_FOUND": "Không tìm thấy dữ liệu."
+         }
+      },
+      "auth": {
+         "validation": {
+            "EMAIL_REQUIRED": "Vui lòng nhập địa chỉ email.",
+            "PASSWORD_REQUIRED": "Vui lòng nhập mật khẩu.",
+            "INVALID_INPUT": "Dữ liệu nhập vào không hợp lệ.",
+            "INVALID_EMAIL": "Định dạng email không hợp lệ.",
+            "PASSWORD_TOO_SHORT": "Mật khẩu phải có ít nhất {count} ký tự.",
+            "PASSWORD_MISMATCH": "Mật khẩu nhập lại không trùng khớp."
+         },
+         "business": {
+            "USER_ALREADY_EXISTS": "Thông tin này đã được đăng kí với một tài khoản khác.",
+            "INVALID_CREDENTIALS": "Thông tin đăng nhập không chính xác.",
+            "UNAUTHORIZED": "Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại."
+         },
+         "system": {
+            "USER_NOT_FOUND": "Không tìm thấy thông tin người dùng."
+         }
+      },
+      "onboarding": {
+         "validation": {
+            "USERNAME_REQUIRED": "Vui lòng nhập tên người dùng.",
+            "INVALID_USERNAME": "Tên người dùng chỉ bao gồm chữ cái không dấu, chữ số và dấu gạch dưới.",
+            "USERNAME_TOO_SHORT": "Tên người dùng phải có ít nhất {count} kí tự.",
+            "USERNAME_TOO_LONG": "Tên người dùng không được vượt quá {count} kí tự."
+         },
+         "business": {
+            "USERNAME_ALREADY_EXISTS": "Tên người dùng này đã được sử dụng. Vui lòng chọn tên khác.",
+            "UNAUTHORIZED": "Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại."
+         },
+         "system": {
+            "USER_NOT_FOUND": "Không tìm thấy thông tin người dùng."
+         }
+      }
+   }
+}

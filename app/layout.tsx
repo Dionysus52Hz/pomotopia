@@ -1,30 +1,70 @@
-import { Geist, Geist_Mono } from "next/font/google"
+import { Geist_Mono, Inter, Inter_Tight } from "next/font/google";
 
-import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
+import "./globals.css";
 import { cn } from "@/lib/utils";
+import { getMessages, getLocale } from "next-intl/server";
+import { Toaster } from "sonner";
+import { Providers } from "@/app/providers";
+import { cookies } from "next/headers";
+import { VARIABLES } from "@/constants/variables";
+import { I18nInitializer } from "@/i18n/initializer";
+import { Metadata } from "next";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'})
+const fontHeading = Inter_Tight({
+   subsets: ["latin"],
+   variable: "--font-heading",
+});
+const fontSans = Inter({
+   subsets: ["latin"],
+   variable: "--font-sans",
+});
 
 const fontMono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-})
+   subsets: ["latin"],
+   variable: "--font-mono",
+});
 
-export default function RootLayout({
-  children,
+export const metadata: Metadata = {
+   title: "Pomotopia",
+   icons: {
+      icon: "/icons/favicon.png",
+   },
+};
+
+export default async function RootLayout({
+   children,
 }: Readonly<{
-  children: React.ReactNode
+   children: React.ReactNode;
 }>) {
-  return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, "font-sans", geist.variable)}
-    >
-      <body>
-        <ThemeProvider>{children}</ThemeProvider>
-      </body>
-    </html>
-  )
+   const locale = await getLocale();
+   const messages = await getMessages();
+   const cookieStore = await cookies();
+   const timeZone =
+      cookieStore.get(VARIABLES.I18N.TIME_ZONE_KEY)?.value ||
+      VARIABLES.I18N.DEFAULT_TIME_ZONE;
+
+   return (
+      <html
+         lang={locale}
+         suppressHydrationWarning
+         className={cn(
+            "antialiased",
+            fontHeading.variable,
+            fontSans.variable,
+            fontMono.variable
+         )}
+      >
+         <body>
+            <I18nInitializer />
+
+            <Providers messages={messages} locale={locale} timeZone={timeZone}>
+               {children}
+            </Providers>
+            <Toaster
+               position="top-center"
+               style={{ fontFamily: "inherit", zIndex: 200 }}
+            />
+         </body>
+      </html>
+   );
 }
