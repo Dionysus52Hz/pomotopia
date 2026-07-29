@@ -67,10 +67,11 @@ export function SignUpForm({
          },
          onError: (errors) => {
             errors.forEach((error) => {
+               console.log(error);
                form.setError(
                   error.field as "email" | "password",
                   {
-                     message: errorsTranslator(error.code),
+                     message: error.message,
                   },
                   {
                      shouldFocus: true,
@@ -102,9 +103,10 @@ export function SignUpForm({
 
                      <Field className="grid">
                         <RippleButton
+                           hoverScale={1}
                            variant="outline"
                            type="button"
-                           rounded="full"
+                           rounded="none"
                            disabled={isSigningUp}
                         >
                            <HugeiconsIcon icon={GoogleIcon} />
@@ -140,7 +142,10 @@ export function SignUpForm({
                                  inputMode="email"
                                  placeholder={t("fields.email.placeholder")}
                                  aria-invalid={fieldState.invalid}
-                                 className="rounded-full text-xs"
+                                 className="text-xs"
+                                 autoComplete="off"
+                                 tabIndex={0}
+                                 autoFocus
                               />
 
                               {fieldState.invalid && (
@@ -160,7 +165,7 @@ export function SignUpForm({
                                     <span className="text-destructive">*</span>
                                  </div>
                               </FieldLabel>
-                              <InputGroup className="rounded-full">
+                              <InputGroup>
                                  <InputGroupInput
                                     {...field}
                                     id="signup-form-password"
@@ -170,9 +175,13 @@ export function SignUpForm({
                                     )}
                                     aria-invalid={fieldState.invalid}
                                     className="text-xs"
+                                    tabIndex={0}
                                  />
                                  {field.value.length > 0 && (
-                                    <InputGroupAddon align="inline-end">
+                                    <InputGroupAddon
+                                       align="inline-end"
+                                       tabIndex={-1}
+                                    >
                                        <ToggleButton
                                           size="icon-sm"
                                           pressed={showPassword}
@@ -183,8 +192,12 @@ export function SignUpForm({
                                           inactiveIcon={
                                              <EyeIcon duration={1} />
                                           }
-                                          labelActive="Hide password"
-                                          labelInactive="Show password"
+                                          labelActive={t(
+                                             "tooltips.hide_password"
+                                          )}
+                                          labelInactive={t(
+                                             "tooltips.show_password"
+                                          )}
                                        />
                                     </InputGroupAddon>
                                  )}
@@ -210,7 +223,7 @@ export function SignUpForm({
                                     <span className="text-destructive">*</span>
                                  </div>
                               </FieldLabel>
-                              <InputGroup className="rounded-full">
+                              <InputGroup>
                                  <InputGroupInput
                                     className="text-xs"
                                     {...field}
@@ -222,9 +235,13 @@ export function SignUpForm({
                                        "fields.confirm_password.placeholder"
                                     )}
                                     aria-invalid={fieldState.invalid}
+                                    tabIndex={0}
                                  />
                                  {field.value.length > 0 && (
-                                    <InputGroupAddon align="inline-end">
+                                    <InputGroupAddon
+                                       align="inline-end"
+                                       tabIndex={-1}
+                                    >
                                        <ToggleButton
                                           size="icon-sm"
                                           pressed={showConfirmPassword}
@@ -235,8 +252,12 @@ export function SignUpForm({
                                           inactiveIcon={
                                              <EyeIcon duration={1} />
                                           }
-                                          labelActive="Hide confirm password"
-                                          labelInactive="Show confirm password"
+                                          labelActive={t(
+                                             "tooltips.hide_password"
+                                          )}
+                                          labelInactive={t(
+                                             "tooltips.show_password"
+                                          )}
                                        />
                                     </InputGroupAddon>
                                  )}
@@ -251,7 +272,8 @@ export function SignUpForm({
 
                      <Field>
                         <RippleButton
-                           rounded="full"
+                           rounded="none"
+                           hoverScale={1}
                            type="submit"
                            form="signup-form"
                            disabled={isSigningUp}

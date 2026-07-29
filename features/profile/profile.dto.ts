@@ -1,14 +1,15 @@
-export type ProfileServiceDTO = {
-   publicId: string;
-   username: string | null;
-   avatarUrl: string | null;
-};
+import { AvatarHistory } from "@/lib/drizzle/schema/profiles";
 
-export type ProfileActionDTO = {
+export interface UserAvatarDTO {
    publicId: string;
    username: string | null;
    avatarUrl: string | null;
-};
+   avatarHistory: AvatarHistory[];
+}
+
+export interface FullProfileDTO extends UserAvatarDTO {
+   level: number;
+}
 
 export type StatsServiceDTO = {
    publicId: string;

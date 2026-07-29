@@ -28,7 +28,7 @@ export const userSettings = pgTable(
             startWith: 1,
             increment: 1,
             minValue: 1,
-            maxValue: 9223372036854775807,
+            maxValue: 1000000000000,
             cache: 1,
          }),
       publicId: uuid("public_id").notNull(),

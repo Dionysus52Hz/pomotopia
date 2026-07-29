@@ -71,9 +71,7 @@ export function SettingsGroup({
                {t(definitions.titleKey)}
             </span>
          </div>
-         <div className="ml-1.5 flex flex-col gap-1 border-l pl-2">
-            {children}
-         </div>
+         <div className="ml-1.5 flex flex-col gap-1 pl-2">{children}</div>
       </div>
    );
 }
@@ -90,7 +88,7 @@ export function SettingsRow({
 
    return (
       <ScrollSpyLink
-         className={cn("flex items-center gap-2", className)}
+         className={cn("flex items-center gap-2 py-1.5", className)}
          value={definitions.value}
          onMouseEnter={() => setIsHovered(true)}
          onMouseLeave={() => setIsHovered(false)}

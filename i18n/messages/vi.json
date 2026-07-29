@@ -74,6 +74,10 @@
          },
          "toasts": {
             "success": "Đăng ký tài khoản thành công."
+         },
+         "tooltips": {
+            "hide_password": "Ẩn mật khẩu",
+            "show_password": "Hiện mật khẩu"
          }
       },
       "signin": {
@@ -97,6 +101,53 @@
          "footer_link": "Đăng ký ngay",
          "toasts": {
             "success": "Đăng nhập thành công."
+         },
+         "tooltips": {
+            "hide_password": "Ẩn mật khẩu",
+            "show_password": "Hiện mật khẩu"
+         }
+      }
+   },
+   "profile": {
+      "fields": {
+         "display_name": {
+            "label": "Tên hiển thị",
+            "placeholder": "dionysus52hz"
+         },
+         "avatar": {
+            "label": "Ảnh đại diện",
+            "options": {
+               "view_avatar": "Xem ảnh đại diện",
+               "select_avatar": "Chọn ảnh đại diện"
+            }
+         }
+      },
+      "avatar_editor": {
+         "submit_button": "Lưu",
+         "submitting": "Đanmg tải ảnh lên...",
+         "cancel_button": "Hủy",
+         "confirm_exit": {
+            "title": "Bạn xác nhận muốn thoát?",
+            "description": "Thao tác này không thể hoàn tác và sẽ xóa mọi chỉnh sửa bạn đã thực hiện trên hình ảnh này.",
+            "stay_button": "Tiếp tục chỉnh sửa",
+            "confirm_button": "Xác nhận thoát"
+         },
+         "title": "Chỉnh sửa hình ảnh"
+      },
+      "avatar_gallery": {
+         "title": "Thư viện ảnh",
+         "upload_image_button": "Tải ảnh lên",
+         "uploaded_images": "Ảnh đã tải lên",
+         "no_history": {
+            "title": "Chưa có ảnh nào được tải lên."
+         }
+      },
+      "submit_button": "Lưu thông tin",
+      "submitting": "Đang lưu...",
+      "toasts": {
+         "success": {
+            "avatar": "Ảnh đại diện đã được thay đổi.",
+            "information": "Đã lưu thông tin."
          }
       }
    },
@@ -111,6 +162,7 @@
       },
       "submit_button": "Xác nhận"
    },
+
    "settings": {
       "appearance": {
          "title": "Giao diện",
@@ -246,6 +298,22 @@
          },
          "business": {
             "USERNAME_ALREADY_EXISTS": "Tên người dùng này đã được sử dụng. Vui lòng chọn tên khác.",
+            "UNAUTHORIZED": "Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại."
+         },
+         "system": {
+            "USER_NOT_FOUND": "Không tìm thấy thông tin người dùng."
+         }
+      },
+      "profile": {
+         "validation": {
+            "USERNAME_REQUIRED": "Vui lòng nhập tên hiển thị của bạn.",
+            "INVALID_INPUT": "Dữ liệu nhập vào không hợp lệ.",
+            "USERNAME_TOO_LONG": "Tên hiển thị không thể vượt quá {count} kí tự.",
+            "AVATAR_TOO_LARGE": "Vui lòng chọn tệp có dung lượng tối đa {size}MB.",
+            "UNACCEPTED_AVATAR_FILE_TYPES": "Định dạng tệp đã chọn không phù hợp. Vui lòng chọn một tệp khác."
+         },
+         "business": {
+            "USERNAME_ALREADY_EXISTS": "Tên này đã được sử dụng. Vui lòng chọn tên khác.",
             "UNAUTHORIZED": "Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại."
          },
          "system": {

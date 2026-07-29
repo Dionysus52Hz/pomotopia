@@ -19,14 +19,16 @@ export function useSignUpWithEmail() {
       isPending: isSigningUp,
       error: signUpError,
    } = useAppMutation({
-      mutationFn: async (payload: SignUpInput) => {
-         const [data, error] = await signUpWithEmailAction(payload);
-         if (error) throw error;
-         return data;
-      },
-      onSuccess: async () => {
-         await supabase.auth.refreshSession();
-         router.push("/onboarding");
+      mutationOptions: {
+         mutationFn: async (payload: SignUpInput) => {
+            const [data, error] = await signUpWithEmailAction(payload);
+            if (error) throw error;
+            return data;
+         },
+         onSuccess: async () => {
+            await supabase.auth.refreshSession();
+            router.push("/onboarding");
+         },
       },
    });
 
@@ -47,15 +49,17 @@ export function useSignInWithEmail() {
       isPending: isSigningIn,
       error: signInError,
    } = useAppMutation({
-      mutationFn: async (payload: SignInInput) => {
-         const [data, error] = await signInWithEmailAction(payload);
-         if (error) throw error;
-         return data;
-      },
-      onSuccess: async () => {
-         await supabase.auth.refreshSession();
-         queryClient.clear();
-         router.push("/");
+      mutationOptions: {
+         mutationFn: async (payload: SignInInput) => {
+            const [data, error] = await signInWithEmailAction(payload);
+            if (error) throw error;
+            return data;
+         },
+         onSuccess: async () => {
+            await supabase.auth.refreshSession();
+            queryClient.clear();
+            router.push("/");
+         },
       },
    });
 
@@ -76,15 +80,17 @@ export function useSignOut() {
       isPending: isSigningOut,
       error: signOutError,
    } = useAppMutation({
-      mutationFn: async () => {
-         const [data, error] = await signOutAction();
-         if (error) throw AppError.convertToAppError(error);
-         return data;
-      },
-      onSuccess: async () => {
-         await supabase.auth.signOut();
-         queryClient.clear();
-         router.push("/introduce");
+      mutationOptions: {
+         mutationFn: async () => {
+            const [data, error] = await signOutAction();
+            if (error) throw AppError.convertToAppError(error);
+            return data;
+         },
+         onSuccess: async () => {
+            await supabase.auth.signOut();
+            queryClient.clear();
+            router.push("/introduce");
+         },
       },
    });
 

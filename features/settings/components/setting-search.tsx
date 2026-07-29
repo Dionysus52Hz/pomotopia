@@ -47,8 +47,8 @@ export function SettingsSearch({
    };
 
    return (
-      <div className="p-4 pb-0">
-         <InputGroup className="overflow-hidden rounded-full">
+      <div className="p-4">
+         <InputGroup className="overflow-hidden">
             <InputGroupAddon>
                <SearchIcon ref={searchIconRef} size={16} />
             </InputGroupAddon>
@@ -58,7 +58,10 @@ export function SettingsSearch({
                autoComplete="off"
                placeholder={placeholder}
                value={value}
-               onFocus={() => searchIconRef.current?.startAnimation()}
+               onFocus={(event) => {
+                  searchIconRef.current?.startAnimation();
+                  event.target.select();
+               }}
                onBlur={() => searchIconRef.current?.stopAnimation()}
                onChange={(e) => onChange(e.target.value)}
                className="text-xs"
@@ -88,7 +91,7 @@ export function SettingsSearch({
                            </Button>
                         }
                      ></TooltipTrigger>
-                     <TooltipPanel className="rounded-full">
+                     <TooltipPanel className="rounded-none">
                         {clearButtonTooltip}
                      </TooltipPanel>
                   </Tooltip>

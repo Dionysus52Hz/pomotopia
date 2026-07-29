@@ -29,11 +29,6 @@ export async function completeOnboardingAction(
          defaultError: AppError.convertToAppError(
             ONBOARDING_ERRORS.validation.INVALID_USERNAME
          ),
-         fieldErrors: {
-            username: AppError.convertToAppError(
-               ONBOARDING_ERRORS.validation.USERNAME_TOO_LONG
-            ),
-         },
       });
    }
 

@@ -5,6 +5,11 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import { Button as ButtonPrimitive } from "@base-ui/react";
 import { cn } from "@/lib/utils";
 import { VariantProps } from "class-variance-authority";
+import {
+   Tooltip,
+   TooltipPanel,
+   TooltipTrigger,
+} from "@/components/animate-ui/components/base/tooltip";
 
 interface ToggleButtonProps extends Omit<
    ButtonPrimitive.Props & VariantProps<typeof buttonVariants>,
@@ -31,16 +36,25 @@ export function ToggleButton({
    ...props
 }: ToggleButtonProps) {
    return (
-      <Button
-         type="button"
-         variant={variant}
-         size={size}
-         onClick={onStateChange}
-         aria-label={pressed ? labelActive : labelInactive}
-         className={cn("select-none", className)}
-         {...props}
-      >
-         {pressed ? activeIcon : inactiveIcon}
-      </Button>
+      <Tooltip>
+         <TooltipTrigger
+            render={
+               <Button
+                  type="button"
+                  variant={variant}
+                  size={size}
+                  onClick={onStateChange}
+                  aria-label={pressed ? labelActive : labelInactive}
+                  className={cn("select-none", className)}
+                  {...props}
+               >
+                  {pressed ? activeIcon : inactiveIcon}
+               </Button>
+            }
+         ></TooltipTrigger>
+         <TooltipPanel className="rounded-none text-xs">
+            {pressed ? labelActive : labelInactive}
+         </TooltipPanel>
+      </Tooltip>
    );
 }

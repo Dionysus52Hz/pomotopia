@@ -29,14 +29,6 @@ export async function signUpWithEmailAction(
          defaultError: AppError.convertToAppError(
             AUTH_ERRORS.validation.INVALID_INPUT
          ),
-         fieldErrors: {
-            email: AppError.convertToAppError(
-               AUTH_ERRORS.validation.EMAIL_REQUIRED
-            ),
-            password: AppError.convertToAppError(
-               AUTH_ERRORS.validation.PASSWORD_REQUIRED
-            ),
-         },
       });
    }
 
@@ -68,16 +60,6 @@ export async function signInWithEmailAction(
          defaultError: AppError.convertToAppError(
             AUTH_ERRORS.validation.INVALID_INPUT
          ),
-         fieldErrors: {
-            email: AppError.convertToAppError({
-               ...AUTH_ERRORS.validation.EMAIL_REQUIRED,
-               field: "email",
-            }),
-            password: AppError.convertToAppError({
-               ...AUTH_ERRORS.validation.PASSWORD_REQUIRED,
-               field: "password",
-            }),
-         },
       });
    }
 
