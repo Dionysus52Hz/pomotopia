@@ -26,15 +26,39 @@ import { SettingsSearch } from "@/features/settings/components/setting-search";
 import debounce from "lodash.debounce";
 import { Settings as SettingsIcon } from "@/components/animate-ui/icons/settings";
 import { AnimateIcon } from "@/components/animate-ui/icons/icon";
-import { SETTINGS_STRUCTURE } from "@/features/settings/components/settings-structure";
+import { createSettingsStructure } from "@/features/settings/components/settings-structure";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { cn } from "@/lib/utils";
+import { FullProfileDTO } from "@/features/profile/profile.dto";
+import { Separator } from "@/components/ui/separator";
 
-export function Settings({ userId }: { userId: string }) {
+interface SettingsProps {
+   userId: string;
+   initialProfile: FullProfileDTO;
+}
+
+export function Settings({ userId, initialProfile }: SettingsProps) {
    const [searchQuery, setSearchQuery] = useState("");
-   const { data: profile, isLoading, error } = useGetProfile(userId);
+   const { data: profile } = useGetProfile(userId, initialProfile);
    const [scrollContainer, setScrollContainer] =
       useState<HTMLDivElement | null>(null);
    const [debouncedSearchQuery, setDebouncedSearchQuery] = useState("");
    const t = useTranslations("settings");
+
+   const currentProfile = initialProfile || profile;
+   const SETTINGS_STRUCTURE = useMemo(
+      () =>
+         createSettingsStructure({
+            initialProfile: currentProfile,
+            initialUserAvatar: {
+               avatarUrl: currentProfile.avatarUrl,
+               publicId: currentProfile.publicId,
+               username: currentProfile.username,
+               avatarHistory: currentProfile.avatarHistory,
+            },
+         }),
+      [currentProfile]
+   );
 
    const handleDebounceSearch = useMemo(
       () =>
@@ -76,7 +100,7 @@ export function Settings({ userId }: { userId: string }) {
          return { ...group, items };
       }).filter((group) => group.items.length > 0);
       // eslint-disable-next-line react-hooks/exhaustive-deps
-   }, [cleanSearchQuery]);
+   }, [cleanSearchQuery, SETTINGS_STRUCTURE]);
 
    const key = useMemo(
       () =>
@@ -103,7 +127,7 @@ export function Settings({ userId }: { userId: string }) {
    }, [handleDebounceSearch]);
 
    return (
-      <div className="flex h-full w-full flex-col gap-4">
+      <div className="flex h-full w-full max-w-5xl flex-col">
          <SettingsSearch
             value={searchQuery}
             onChange={handleSearchChange}
@@ -116,7 +140,7 @@ export function Settings({ userId }: { userId: string }) {
             {!hasResults ? (
                <Empty>
                   <EmptyHeader>
-                     <EmptyMedia>
+                     <EmptyMedia variant="icon">
                         <AnimateIcon animateOnView animation="rotate">
                            <SettingsIcon />
                         </AnimateIcon>
@@ -133,50 +157,73 @@ export function Settings({ userId }: { userId: string }) {
                <ScrollSpy
                   key={key}
                   scrollContainer={scrollContainer}
-                  className="h-full w-full bg-background"
-                  offset={32}
-                  rootMargin="-32px 0px -60% 0px"
+                  className="h-full w-full gap-2 p-4 pt-0"
+                  offset={64}
+                  rootMargin="-64px 0px -65% 0px"
                >
-                  <ScrollSpyNav className="w-3xs gap-4 border-r pt-2">
-                     {filteredGroups.map((group) => (
-                        <div className="flex flex-col gap-2" key={group.value}>
-                           <SettingsGroup
-                              definitions={group}
-                              className="px-4 pt-2"
+                  <ScrollSpyNav className="w-max gap-4 md:w-3xs">
+                     <ScrollArea className="h-full w-full scroll-smooth border bg-muted/50 px-4">
+                        {filteredGroups.map((group, index) => (
+                           <div
+                              className={cn(
+                                 "flex flex-col gap-2",
+                                 index === 0 && "pt-2"
+                              )}
+                              key={group.value}
                            >
-                              {group.items.map((item) => (
-                                 <SettingsRow
-                                    key={item.value}
-                                    definitions={item}
-                                    className="rounded-full data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
-                                 />
-                              ))}
-                           </SettingsGroup>
-                        </div>
-                     ))}
+                              <SettingsGroup
+                                 definitions={group}
+                                 className="pt-2"
+                              >
+                                 {group.items.map((item) => (
+                                    <SettingsRow
+                                       key={item.value}
+                                       definitions={item}
+                                       className="rounded-none data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                                    />
+                                 ))}
+                              </SettingsGroup>
+                           </div>
+                        ))}
+                     </ScrollArea>
                   </ScrollSpyNav>
 
-                  <ScrollSpyViewport
-                     ref={setScrollContainer}
-                     className="overflow-y-auto p-4 pb-40"
-                  >
-                     {filteredGroups.map((group) => (
-                        <div key={group.value}>
-                           <h2>{t(group.titleKey)}</h2>
-                           {group.items.map((item) => (
-                              <ScrollSpySection
-                                 key={item.value}
-                                 value={item.value}
-                              >
-                                 <h2>{t(item.titleKey)}</h2>
-                                 {item.descriptionKey && (
-                                    <p>{t(item.descriptionKey)}</p>
-                                 )}
-                                 {item.children}
-                              </ScrollSpySection>
-                           ))}
-                        </div>
-                     ))}
+                  <ScrollSpyViewport>
+                     <ScrollArea
+                        viewportRef={setScrollContainer}
+                        className="h-full w-full scroll-smooth border bg-muted/50 px-4"
+                     >
+                        {filteredGroups.map((group, index) => (
+                           <div
+                              key={group.value}
+                              className={cn(index === 0 && "pt-4")}
+                           >
+                              <h2 className="text-xl font-semibold md:text-2xl">
+                                 {t(group.titleKey)}
+                              </h2>
+                              <div className="flex flex-col gap-4 py-4">
+                                 {group.items.map((item) => (
+                                    <ScrollSpySection
+                                       key={item.value}
+                                       value={item.value}
+                                    >
+                                       <h3 className="text-md font-semibold md:text-lg">
+                                          {t(item.titleKey)}
+                                       </h3>
+                                       {item.descriptionKey && (
+                                          <p className="text-xs font-medium text-muted-foreground">
+                                             {t(item.descriptionKey)}
+                                          </p>
+                                       )}
+                                       <div className="py-2">
+                                          {item.render ? item.render() : null}
+                                       </div>
+                                    </ScrollSpySection>
+                                 ))}
+                              </div>
+                           </div>
+                        ))}
+                     </ScrollArea>
                   </ScrollSpyViewport>
                </ScrollSpy>
             )}

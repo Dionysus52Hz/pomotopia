@@ -20,7 +20,7 @@ export default async function MainNavbar() {
             <div className="flex items-center gap-2">
                <ThemeTogglerButton
                   size="xs"
-                  className="rounded-full shadow-none"
+                  className="rounded-none shadow-none"
                   variant="outline"
                   modes={["dark", "light"]}
                />

@@ -17,7 +17,7 @@ import { ActiveLink } from "@/components/ui/active-link";
 export default function Navigation() {
    const activeClass = "text-red-500";
    return (
-      <div className="fixed bottom-0 w-dvw p-3">
+      <div className="fixed bottom-0 p-3 md:relative md:flex">
          <div className="flex w-full items-center justify-center">
             <NavigationMenu className="rounded-lg border p-2">
                <NavigationMenuList>

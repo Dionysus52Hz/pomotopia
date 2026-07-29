@@ -74,6 +74,10 @@
          },
          "toasts": {
             "success": "Account created successfull."
+         },
+         "tooltips": {
+            "hide_password": "Hide password",
+            "show_password": "Show password"
          }
       },
       "signin": {
@@ -97,6 +101,10 @@
          "footer_link": "Sign up",
          "toasts": {
             "success": "Sign in successfully."
+         },
+         "tooltips": {
+            "hide_password": "Hide password",
+            "show_password": "Show password"
          }
       }
    },
@@ -110,6 +118,49 @@
          }
       },
       "submit_button": "Confirm"
+   },
+   "profile": {
+      "fields": {
+         "display_name": {
+            "label": "Display name",
+            "placeholder": "dionysus52hz"
+         },
+         "avatar": {
+            "label": "Avatar",
+            "options": {
+               "view_avatar": "View avatar",
+               "select_avatar": "Choose avatar"
+            }
+         }
+      },
+      "avatar_editor": {
+         "title": "Avatar editor",
+         "submit_button": "Save",
+         "submitting": "Saving...",
+         "cancel_button": "Cancel",
+         "confirm_exit": {
+            "title": "Are you absolutely sure?",
+            "description": "This action cannot be undone. This action will permanently delete any changes you have made to this image.",
+            "stay_button": "Stay edit",
+            "confirm_button": "Still exit"
+         }
+      },
+      "avatar_gallery": {
+         "title": "Avatar gallery",
+         "upload_image_button": "Upload image",
+         "uploaded_images": "Uploaded images",
+         "no_history": {
+            "title": "You haven't uploaded any images."
+         }
+      },
+      "submit_button": "Save",
+      "submitting": "Saving...",
+      "toasts": {
+         "success": {
+            "information": "Save information successfully.",
+            "avatar": "New avatar has been updated."
+         }
+      }
    },
    "settings": {
       "appearance": {
@@ -246,6 +297,22 @@
          },
          "business": {
             "USERNAME_ALREADY_EXISTS": "This username is already taken. Please choose another one.",
+            "UNAUTHORIZED": "Your login session has expired. Please sign in again."
+         },
+         "system": {
+            "USER_NOT_FOUND": "No user account was found associated with the details provided."
+         }
+      },
+      "profile": {
+         "validation": {
+            "USERNAME_REQUIRED": "Please enter your display name.",
+            "INVALID_INPUT": "Invalid input format.",
+            "USERNAME_TOO_LONG": "Display name must be less than {count} characters long.",
+            "AVATAR_TOO_LARGE": "Please select a file with a maximum size of {size}MB.",
+            "UNACCEPTED_AVATAR_FILE_TYPES": "The selected file format is invalid. Please select the correct file format."
+         },
+         "business": {
+            "USERNAME_ALREADY_EXISTS": "This name is already used. Please choose a different name.",
             "UNAUTHORIZED": "Your login session has expired. Please sign in again."
          },
          "system": {

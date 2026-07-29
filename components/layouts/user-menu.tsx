@@ -70,12 +70,15 @@ export default function UserMenuClient({ userId }: { userId: string }) {
                )
             }
          />
-         <PopoverPanel align="end" className="max-w-max p-0 text-xs">
+         <PopoverPanel
+            align="end"
+            className="max-w-max rounded-none p-0 text-xs"
+         >
             <div className="grid gap-0.5">
                <div className="p-1">
                   <Link
                      href={`/profile/${profile?.publicId}`}
-                     className="block rounded-lg p-1 px-2 hover:bg-accent"
+                     className="block rounded-none px-2 py-1.5 hover:bg-accent"
                   >
                      <div className="flex items-center gap-2">
                         <Avatar>
@@ -99,20 +102,20 @@ export default function UserMenuClient({ userId }: { userId: string }) {
 
                <div className="grid gap-1 p-1">
                   <Link href={"/settings"}>
-                     <div className="flex items-center gap-1.5 rounded-lg px-2 py-1 hover:bg-accent">
+                     <div className="flex items-center gap-1.5 rounded-none px-2 py-1.5 hover:bg-accent">
                         <HugeiconsIcon icon={Settings01Icon} size={16} />
                         Settings
                      </div>
                   </Link>
                   <Link href={"/faq-tutorial"}>
-                     <div className="flex items-center gap-1.5 rounded-lg px-2 py-1 hover:bg-accent">
+                     <div className="flex items-center gap-1.5 rounded-none px-2 py-1.5 hover:bg-accent">
                         <HugeiconsIcon icon={ChatQuestion01Icon} size={16} />
                         FAQ & Tutorial
                      </div>
                   </Link>
 
                   <div
-                     className="flex cursor-pointer items-center gap-1.5 rounded-lg px-2 py-1 text-destructive hover:bg-destructive/10"
+                     className="flex cursor-pointer items-center gap-1.5 rounded-none px-2 py-1.5 text-destructive hover:bg-destructive/10"
                      onClick={handleSignOut}
                   >
                      <HugeiconsIcon icon={Logout01Icon} size={16} />

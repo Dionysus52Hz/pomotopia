@@ -11,6 +11,7 @@ import {
    bigint,
    boolean,
    foreignKey,
+   jsonb,
    pgPolicy,
    pgTable,
    text,
@@ -27,7 +28,7 @@ export const profiles = pgTable(
          startWith: 1,
          increment: 1,
          minValue: 1,
-         maxValue: 9223372036854775807,
+         maxValue: 1000000000000,
          cache: 1,
       }),
       createdAt: timestamp("created_at", { withTimezone: true, mode: "string" })
@@ -69,6 +70,10 @@ export const profiles = pgTable(
       }),
       publicId: uuid("public_id").defaultRandom().notNull(),
       onboardingCompleted: boolean("onboarding_completed").notNull(),
+      avatarHistory: jsonb("avatar_history")
+         .$type<AvatarHistory[]>()
+         .notNull()
+         .default([]),
    },
    (table) => [
       foreignKey({
@@ -116,3 +121,9 @@ export const profilesRelations = relations(profiles, ({ one, many }) => ({
 export type SelectProfile = typeof profiles.$inferSelect;
 export type InsertProfile = typeof profiles.$inferInsert;
 export type UpdateProfile = Partial<typeof profiles.$inferInsert>;
+export type AvatarHistory = {
+   publicId: string;
+   secureUrl: string;
+   pHash: string;
+   uploadedAt: Date;
+};

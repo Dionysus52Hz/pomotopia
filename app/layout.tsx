@@ -3,7 +3,7 @@ import { Geist_Mono, Inter, Inter_Tight } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { getMessages, getLocale } from "next-intl/server";
-import { Toaster } from "sonner";
+import { Toaster } from "@/components/ui/sonner";
 import { Providers } from "@/app/providers";
 import { cookies } from "next/headers";
 import { VARIABLES } from "@/constants/variables";
@@ -14,10 +14,7 @@ const fontHeading = Inter_Tight({
    subsets: ["latin"],
    variable: "--font-heading",
 });
-const fontSans = Inter({
-   subsets: ["latin"],
-   variable: "--font-sans",
-});
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 const fontMono = Geist_Mono({
    subsets: ["latin"],
@@ -50,8 +47,9 @@ export default async function RootLayout({
          className={cn(
             "antialiased",
             fontHeading.variable,
-            fontSans.variable,
-            fontMono.variable
+            fontMono.variable,
+            "font-sans",
+            inter.variable
          )}
       >
          <body>
@@ -60,10 +58,6 @@ export default async function RootLayout({
             <Providers messages={messages} locale={locale} timeZone={timeZone}>
                {children}
             </Providers>
-            <Toaster
-               position="top-center"
-               style={{ fontFamily: "inherit", zIndex: 200 }}
-            />
          </body>
       </html>
    );

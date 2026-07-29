@@ -17,6 +17,21 @@ export const PROFILE_ERRORS = {
          statusCode: StatusCodes.UNPROCESSABLE_ENTITY,
          message: "Invalid username format",
       },
+      INVALID_INPUT: {
+         code: "profile.validation.INVALID_INPUT",
+         statusCode: StatusCodes.UNPROCESSABLE_ENTITY,
+         message: "Invalid input format",
+      },
+      AVATAR_TOO_LARGE: {
+         code: "profile.validation.AVATAR_TOO_LARGE",
+         statusCode: StatusCodes.UNPROCESSABLE_ENTITY,
+         message: "Avatar file size is too large",
+      },
+      UNACCEPTED_AVATAR_FILE_TYPES: {
+         code: "profile.validation.UNACCEPTED_AVATAR_FILE_TYPES",
+         statusCode: StatusCodes.UNPROCESSABLE_ENTITY,
+         message: "Avatar file type is unaccepted",
+      },
    },
    business: {
       USERNAME_ALREADY_EXISTS: {

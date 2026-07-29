@@ -72,7 +72,7 @@ function PaginationPrevious({
     <PaginationLink
       aria-label="Go to previous page"
       size="default"
-      className={cn("ps-2!", className)}
+      className={cn("ps-1.5!", className)}
       {...props}
     >
       <HugeiconsIcon icon={ArrowLeft01Icon} strokeWidth={2} data-icon="inline-start" className="rtl:rotate-180" />
@@ -90,7 +90,7 @@ function PaginationNext({
     <PaginationLink
       aria-label="Go to next page"
       size="default"
-      className={cn("pe-2!", className)}
+      className={cn("pe-1.5!", className)}
       {...props}
     >
       <span className="hidden sm:block">{text}</span>
@@ -108,7 +108,7 @@ function PaginationEllipsis({
       aria-hidden
       data-slot="pagination-ellipsis"
       className={cn(
-        "flex size-7 items-center justify-center [&_svg:not([class*='size-'])]:size-3.5",
+        "flex size-8 items-center justify-center [&_svg:not([class*='size-'])]:size-4",
         className
       )}
       {...props}

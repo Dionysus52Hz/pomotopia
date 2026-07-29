@@ -1,12 +1,12 @@
 {
   "$schema": "https://ui.shadcn.com/schema.json",
-  "style": "base-mira",
+  "style": "base-lyra",
   "rsc": true,
   "tsx": true,
   "tailwind": {
     "config": "",
     "css": "app/globals.css",
-    "baseColor": "zinc",
+    "baseColor": "neutral",
     "cssVariables": true,
     "prefix": ""
   },
@@ -23,6 +23,7 @@
   },
   "registries": {
     "@animate-ui": "https://animate-ui.com/r/{name}.json",
-    "@diceui": "https://diceui.com/r/{style}/{name}.json"
+    "@diceui": "https://diceui.com/r/{style}/{name}.json",
+    "@react-bits": "https://reactbits.dev/r/{name}.json"
   }
 }

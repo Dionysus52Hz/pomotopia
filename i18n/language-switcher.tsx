@@ -4,11 +4,9 @@ import { useLocale, useTranslations } from "next-intl";
 import { changeLanguageAction } from "@/i18n/action";
 import { useRouter } from "next/navigation";
 import { useRef, useTransition } from "react";
-import { HugeiconsIcon } from "@hugeicons/react";
-import { Globe02Icon } from "@hugeicons/core-free-icons";
 import { CheckIcon, type CheckIconHandle } from "@animateicons/react/huge";
 import { VARIABLES } from "@/constants/variables";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import {
    RippleButton,
    RippleButtonRipples,
@@ -49,7 +47,7 @@ export function LanguageSwitcher() {
          <RippleButton
             hoverScale={1}
             variant="ghost"
-            rounded="full"
+            rounded="none"
             disabled={isPending}
             key={language}
             onClick={() => handleChangeLanguage(language)}
@@ -84,7 +82,7 @@ export function LanguageSwitcher() {
                      <TooltipTrigger
                         render={
                            <RippleButton
-                              rounded="full"
+                              rounded="none"
                               variant="outline"
                               className="flex items-center gap-2 px-2! shadow-none"
                               onMouseEnter={() =>
@@ -102,7 +100,7 @@ export function LanguageSwitcher() {
                            </RippleButton>
                         }
                      ></TooltipTrigger>
-                     <TooltipPanel className="rounded-full" sideOffset={12}>
+                     <TooltipPanel className="rounded-none" sideOffset={12}>
                         <span className="text-xs">
                            {t("tooltips.language_switcher")}
                         </span>
@@ -111,7 +109,7 @@ export function LanguageSwitcher() {
                </div>
             }
          ></PopoverTrigger>
-         <PopoverPanel align="end" className="w-max min-w-30 p-0">
+         <PopoverPanel align="end" className="w-max min-w-30 rounded-none p-0">
             <ScrollArea className="h-fit p-1">
                <div className="flex flex-col gap-1">{languageOptions}</div>
             </ScrollArea>

@@ -5,11 +5,11 @@ import { ONBOARDING_ERRORS } from "@/features/onboarding/onboarding.error";
 import { COMMON_ERRORS } from "@/constants/common-errors";
 import { db } from "@/lib/drizzle/database";
 import { profiles, UpdateProfile } from "@/lib/drizzle/schema/profiles";
-import { eq } from "drizzle-orm";
 import { SupabaseClient } from "@supabase/supabase-js";
 import { DrizzleError } from "@/lib/drizzle/utils/error";
 import { AUTH_ERRORS } from "@/features/auth/auth.error";
 import { handleAuthError } from "@/features/auth/auth.helper";
+import { eq } from "drizzle-orm";
 
 export async function completeOnboarding(
    supabase: SupabaseClient,
@@ -52,6 +52,7 @@ export async function completeOnboarding(
       if (error instanceof AppError) {
          return [null, [error]];
       } else if (DrizzleError.isUniqueViolation(error)) {
+         console.log(error);
          return [
             null,
             [

@@ -10,30 +10,42 @@ export function useAppMutation<
    TErrors = SerializedAppError[],
    TVariables = void,
    TContext = unknown,
->(options: UseMutationOptions<TData, TErrors, TVariables, TContext>) {
+>(options: {
+   mutationOptions: UseMutationOptions<TData, TErrors, TVariables, TContext>;
+   hideToast?: boolean;
+}) {
    const t = useTranslations("errors");
 
    return useMutation({
-      ...options,
+      ...options.mutationOptions,
       onError: (errors, variables, onMutateResult, context) => {
-         if (Array.isArray(errors)) {
-            const error: SerializedAppError = errors[0];
-            if (!error.field) {
+         if (!options.hideToast) {
+            if (Array.isArray(errors)) {
+               const error: SerializedAppError = errors[0];
+               if (!error.field) {
+                  toast.error(
+                     t.has(error.code)
+                        ? t(error.code)
+                        : error.message || t("system.UNKNOWN_ERROR")
+                  );
+               }
+            } else if (errors instanceof AppError) {
                toast.error(
-                  t.has(error.code)
-                     ? t(error.code)
-                     : error.message || t("system.UNKNOWN_ERROR")
+                  t.has(errors.code) ? t(errors.code) : errors.message
                );
+            } else if (errors instanceof Error) {
+               toast.error(errors.message);
+            } else {
+               toast.error(t("system.UNKNOWN_ERROR"));
             }
-         } else if (errors instanceof AppError) {
-            toast.error(t.has(errors.code) ? t(errors.code) : errors.message);
-         } else if (errors instanceof Error) {
-            toast.error(errors.message);
-         } else {
-            toast.error(t("system.UNKNOWN_ERROR"));
          }
 
-         options.onError?.(errors, variables, onMutateResult, context);
+         options.mutationOptions.onError?.(
+            errors,
+            variables,
+            onMutateResult,
+            context
+         );
       },
    });
 }

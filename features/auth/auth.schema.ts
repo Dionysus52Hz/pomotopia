@@ -6,7 +6,7 @@ export const createSignUpSchema = (
 ) => {
    return z
       .object({
-         email: z.email(t("auth.validation.INVALID_EMAIL")),
+         email: z.email({ error: t("auth.validation.INVALID_EMAIL") }),
          password: z
             .string()
             .min(6, t("auth.validation.PASSWORD_TOO_SHORT", { count: 6 })),

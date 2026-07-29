@@ -1,11 +1,27 @@
 "use client";
 
 import {
+   AlertDialog,
+   AlertDialogAction,
+   AlertDialogCancel,
+   AlertDialogDescription,
+   AlertDialogFooter,
+   AlertDialogHeader,
+   AlertDialogPopup,
+   AlertDialogTitle,
+} from "@/components/animate-ui/components/base/alert-dialog";
+import {
+   RippleButton,
+   RippleButtonRipples,
+} from "@/components/animate-ui/components/buttons/ripple";
+import {
    Cursor,
    CursorProvider,
 } from "@/components/animate-ui/primitives/animate/cursor";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { useAlertDialog } from "@/hooks/use-alert-dialog";
 import {
    environmentManager,
    QueryClient,
@@ -33,6 +49,63 @@ function getQueryClient() {
       if (!browserQueryClient) browserQueryClient = makeQueryClient();
       return browserQueryClient;
    }
+}
+
+export function AlertDialogProvider() {
+   const { current, isOpen, handleConfirm, handleCancel, handleEscape } =
+      useAlertDialog();
+
+   if (!current && !isOpen) return null;
+
+   return (
+      <AlertDialog
+         open={isOpen}
+         onOpenChange={(open) => !open && handleEscape()}
+      >
+         <AlertDialogPopup className="p-4">
+            <AlertDialogHeader>
+               <AlertDialogTitle className="flex items-center justify-center gap-2 sm:justify-start">
+                  {current?.icon}
+                  {current?.title}
+               </AlertDialogTitle>
+               {current?.description && (
+                  <AlertDialogDescription>
+                     {current.description}
+                  </AlertDialogDescription>
+               )}
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+               <RippleButton
+                  hoverScale={1}
+                  onClick={handleCancel}
+                  variant={
+                     current?.cancelButtonVariant === "default"
+                        ? "accent"
+                        : current?.cancelButtonVariant === "ghost"
+                          ? "ghost"
+                          : "outline"
+                  }
+               >
+                  {current?.cancelLabel}
+                  <RippleButtonRipples />
+               </RippleButton>
+
+               <RippleButton
+                  hoverScale={1}
+                  onClick={handleConfirm}
+                  variant={
+                     current?.confirmButtonVariant === "destructive"
+                        ? "destructive"
+                        : "default"
+                  }
+               >
+                  {current?.confirmLabel}
+                  <RippleButtonRipples />
+               </RippleButton>
+            </AlertDialogFooter>
+         </AlertDialogPopup>
+      </AlertDialog>
+   );
 }
 
 export function Providers({
@@ -64,18 +137,12 @@ export function Providers({
                         color="currentColor"
                         showSpinner={false}
                      />
-                     {/* <Cursor>
-                        <svg
-                           className="size-6 text-foreground"
-                           xmlns="http://www.w3.org/2000/svg"
-                           viewBox="0 0 40 40"
-                        >
-                           <path
-                              fill="currentColor"
-                              d="M1.8 4.4 7 36.2c.3 1.8 2.6 2.3 3.6.8l3.9-5.7c1.7-2.5 4.5-4.1 7.5-4.3l6.9-.5c1.8-.1 2.5-2.4 1.1-3.5L5 2.5c-1.4-1.1-3.5 0-3.3 1.9Z"
-                           />
-                        </svg>
-                     </Cursor> */}
+                     <Toaster
+                        position="top-center"
+                        invert
+                        swipeDirections={["left", "top"]}
+                     />
+                     <AlertDialogProvider />
                      {children}
                   </ThemeProvider>
                </TooltipProvider>

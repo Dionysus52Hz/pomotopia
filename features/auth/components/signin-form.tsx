@@ -101,8 +101,8 @@ export function SignInForm({
 
                      <Field className="grid">
                         <RippleButton
-                           hoverScale={1.05}
-                           rounded="full"
+                           hoverScale={1}
+                           rounded="none"
                            variant="outline"
                            type="button"
                         >
@@ -140,7 +140,7 @@ export function SignInForm({
                                  placeholder={t("fields.email.placeholder")}
                                  aria-invalid={fieldState.invalid}
                                  autoComplete="off"
-                                 className="rounded-full text-xs"
+                                 className="text-xs"
                               />
 
                               {fieldState.invalid && (
@@ -160,7 +160,7 @@ export function SignInForm({
                                     <span className="text-destructive">*</span>
                                  </div>
                               </FieldLabel>
-                              <InputGroup className="overflow-hidden rounded-full">
+                              <InputGroup className="overflow-hidden">
                                  <InputGroupInput
                                     {...field}
                                     id="signin-form-password"
@@ -175,7 +175,6 @@ export function SignInForm({
                                  {field.value.length > 0 && (
                                     <InputGroupAddon align="inline-end">
                                        <ToggleButton
-                                          className="rounded-full"
                                           size="icon-sm"
                                           pressed={showPassword}
                                           onStateChange={togglePassword}
@@ -185,8 +184,12 @@ export function SignInForm({
                                           inactiveIcon={
                                              <EyeIcon duration={1} />
                                           }
-                                          labelActive="Hide password"
-                                          labelInactive="Show password"
+                                          labelActive={t(
+                                             "tooltips.hide_password"
+                                          )}
+                                          labelInactive={t(
+                                             "tooltips.show_password"
+                                          )}
                                        />
                                     </InputGroupAddon>
                                  )}
@@ -201,7 +204,8 @@ export function SignInForm({
 
                      <Field>
                         <RippleButton
-                           rounded="full"
+                           hoverScale={1}
+                           rounded="none"
                            type="submit"
                            form="signin-form"
                            disabled={isSigningIn}

@@ -25,11 +25,8 @@ export function OnboardingForm({
    ...props
 }: React.ComponentProps<"div">) {
    const t = useTranslations("onboarding");
-   const onboardingSchemaTranslator = useTranslations(
-      "errors.onboarding.validation"
-   );
    const translator = useTranslations("errors");
-   const onboardingSchema = createOnboardingSchema(onboardingSchemaTranslator);
+   const onboardingSchema = createOnboardingSchema(translator);
 
    const form = useForm<OnboardingInput>({
       resolver: zodResolver(onboardingSchema),

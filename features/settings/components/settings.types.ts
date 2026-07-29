@@ -19,11 +19,11 @@ export interface IconProps {
 export interface SettingsRowDef {
    value: string;
    titleKey: string;
-   descriptionKey: string;
+   descriptionKey?: string;
    iconSource: IconSource;
    icon: ComponentType<{ ref?: Ref<IconHandle>; className?: string }>;
    iconProps?: IconProps;
-   children?: ReactNode;
+   render?: () => ReactNode;
 }
 
 export interface SettingsGroupDef {
